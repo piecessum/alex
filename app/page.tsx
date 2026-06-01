@@ -2,6 +2,7 @@ import { FloatingNav } from "@/components/ui/floating-nav";
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Experience } from "@/components/sections/experience";
+import { Cases } from "@/components/sections/cases";
 import { Skills } from "@/components/sections/skills";
 import { Education } from "@/components/sections/education";
 import { Contact } from "@/components/sections/contact";
@@ -9,6 +10,7 @@ import {
   IconHome,
   IconUser,
   IconBriefcase,
+  IconBulb,
   IconCode,
   IconSchool,
   IconMail,
@@ -29,6 +31,11 @@ const navItems = [
     name: "Опыт",
     link: "#experience",
     icon: <IconBriefcase className="h-4 w-4 text-neutral-500 dark:text-neutral-300" />,
+  },
+  {
+    name: "Кейсы",
+    link: "#cases",
+    icon: <IconBulb className="h-4 w-4 text-neutral-500 dark:text-neutral-300" />,
   },
   {
     name: "Навыки",
@@ -54,6 +61,7 @@ export default function Home() {
       <Hero />
       <About />
       <Experience />
+      <Cases />
       <Skills />
       <Education />
       <Contact />
