@@ -1,8 +1,6 @@
 "use client";
 
 import { BentoGrid, BentoGridItem } from "@/components/ui/bento-grid";
-import { motion } from "motion/react";
-import { useIsMobile } from "@/lib/use-is-mobile";
 import {
   IconChartBar,
   IconCode,
@@ -30,24 +28,14 @@ const Header = ({
 }: {
   variant: "analysis" | "design" | "docs" | "db" | "qa" | "bi";
 }) => {
-  const isMobile = useIsMobile();
   if (variant === "analysis") {
     return (
       <div className="relative flex h-32 w-full flex-1 overflow-hidden rounded-xl bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-transparent">
-        <motion.div
+        <div
           className="absolute inset-0"
-          animate={
-            isMobile ? undefined : { backgroundPosition: ["0% 0%", "100% 100%"] }
-          }
-          transition={
-            isMobile
-              ? undefined
-              : { duration: 10, repeat: Infinity, repeatType: "reverse" }
-          }
           style={{
             backgroundImage:
               "radial-gradient(circle at 20% 50%, rgba(99,102,241,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(168,85,247,0.3) 0%, transparent 50%)",
-            backgroundSize: "200% 200%",
           }}
         />
       </div>
@@ -57,21 +45,9 @@ const Header = ({
     return (
       <div className="relative flex h-32 w-full flex-1 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-pink-500/10 to-orange-500/10">
         <div className="flex gap-2">
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="h-12 w-12 rounded-lg bg-pink-500/40"
-          />
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 0.2 }}
-            className="h-12 w-12 rounded-lg bg-purple-500/40"
-          />
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
-            className="h-12 w-12 rounded-lg bg-orange-500/40"
-          />
+          <div className="h-12 w-12 rounded-lg bg-pink-500/40" />
+          <div className="h-12 w-12 rounded-lg bg-purple-500/40" />
+          <div className="h-12 w-12 rounded-lg bg-orange-500/40" />
         </div>
       </div>
     );
@@ -80,15 +56,7 @@ const Header = ({
     return (
       <div className="relative flex h-32 w-full flex-1 flex-col gap-2 overflow-hidden rounded-xl bg-gradient-to-br from-emerald-500/10 to-teal-500/10 p-4">
         {[0, 1, 2].map((i) => (
-          <motion.div
-            key={i}
-            initial={isMobile ? false : { width: "0%" }}
-            animate={isMobile ? { width: "70%" } : { width: ["0%", "70%", "70%"] }}
-            transition={
-              isMobile ? undefined : { duration: 3, repeat: Infinity, delay: i * 0.3 }
-            }
-            className="h-2 rounded bg-emerald-500/40"
-          />
+          <div key={i} className="h-2 w-[70%] rounded bg-emerald-500/40" />
         ))}
       </div>
     );
@@ -106,32 +74,16 @@ GROUP BY client_id;`}</pre>
   if (variant === "qa") {
     return (
       <div className="relative flex h-32 w-full flex-1 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-yellow-500/10 to-amber-500/10">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-          className="h-16 w-16 rounded-full border-2 border-dashed border-amber-500/40"
-        />
+        <div className="h-16 w-16 rounded-full border-2 border-dashed border-amber-500/40" />
       </div>
     );
   }
   return (
     <div className="relative flex h-32 w-full flex-1 items-end gap-1 overflow-hidden rounded-xl bg-gradient-to-br from-sky-500/10 to-indigo-500/10 p-4">
       {[40, 70, 50, 90, 60, 80].map((h, i) => (
-        <motion.div
+        <div
           key={i}
-          initial={isMobile ? false : { height: 0 }}
-          animate={{ height: `${h}%` }}
-          transition={
-            isMobile
-              ? undefined
-              : {
-                  duration: 1,
-                  delay: i * 0.1,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  repeatDelay: 2,
-                }
-          }
+          style={{ height: `${h}%` }}
           className="flex-1 rounded-t bg-sky-500/50"
         />
       ))}
@@ -143,20 +95,14 @@ export function Skills() {
   return (
     <section id="skills" className="relative w-full py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="mb-12"
-        >
+        <div className="mb-12">
           <span className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
             // навыки и стек
           </span>
           <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             Что я умею
           </h2>
-        </motion.div>
+        </div>
 
         <BentoGrid className="md:auto-rows-[22rem] max-w-none mx-0">
           <BentoGridItem

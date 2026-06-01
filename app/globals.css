@@ -35,18 +35,6 @@
   border-color: var(--border);
 }
 
-/* На мобильных гасим все CSS-анимации и переходы — на телефоне они дёргаются.
-   Motion-анимации (трансформы) глушит MotionProvider через reducedMotion. */
-@media (max-width: 767px) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
-}
-
 html {
   scroll-behavior: smooth;
 }

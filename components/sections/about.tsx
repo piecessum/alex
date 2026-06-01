@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "motion/react";
-
 const points = [
   {
     title: "Бизнес",
@@ -21,12 +17,7 @@ export function About() {
   return (
     <section id="about" className="relative w-full py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-        >
+        <div>
           <span className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
             // обо мне
           </span>
@@ -39,16 +30,12 @@ export function About() {
             требованиями — от глубинных интервью до постановки задач и приёмки
             результатов.
           </p>
-        </motion.div>
+        </div>
 
         <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3">
           {points.map((p, i) => (
-            <motion.div
+            <div
               key={p.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
               className="group relative rounded-2xl border border-neutral-200 bg-white/50 p-6 backdrop-blur transition hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-950/50 dark:hover:border-neutral-700"
             >
               <div className="absolute inset-x-0 -top-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-indigo-500/50 to-transparent opacity-0 transition group-hover:opacity-100" />
@@ -59,7 +46,7 @@ export function About() {
               <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
                 {p.text}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

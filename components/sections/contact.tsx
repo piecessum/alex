@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
 import { Mail, Phone, Send, MessageCircle, Copy, Check, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { FRIENDS_URL } from "@/lib/site";
@@ -53,12 +52,7 @@ export function Contact() {
   return (
     <section id="contact" className="relative w-full py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-        >
+        <div>
           <span className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
             // контакты
           </span>
@@ -69,19 +63,15 @@ export function Contact() {
             Открыт к предложениям по позиции бизнес-аналитика. Удалёнка, готов к
             командировкам.
           </p>
-        </motion.div>
+        </div>
 
         <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {contacts.map((c, i) => {
             const Icon = c.icon;
             const isCopied = copied === c.label;
             return (
-              <motion.div
+              <div
                 key={c.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
                 className="group relative overflow-hidden rounded-2xl border border-neutral-200 bg-white/50 p-5 backdrop-blur transition hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-950/50 dark:hover:border-neutral-700"
               >
                 <div className="flex items-start gap-4">
@@ -121,18 +111,12 @@ export function Contact() {
                     )}
                   </button>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-16 flex flex-col items-center gap-3 border-t border-neutral-200 pt-8 text-center text-sm text-neutral-500 dark:border-neutral-800 dark:text-neutral-400"
-        >
+        <div className="mt-16 flex flex-col items-center gap-3 border-t border-neutral-200 pt-8 text-center text-sm text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
           <a
             href={FRIENDS_URL}
             target="_blank"
@@ -146,7 +130,7 @@ export function Contact() {
             © {new Date().getFullYear()} Алексей Масюта · Сделано на Next.js,
             Aceternity UI и кофе
           </span>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

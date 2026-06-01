@@ -1,7 +1,6 @@
 "use client";
 
 import { Timeline } from "@/components/ui/timeline";
-import { motion } from "motion/react";
 
 const achievements = [
   "Сопроводил запуск 24 крупных фич от исследования до релиза",
@@ -19,6 +18,20 @@ const duties = [
   "Ведение документации в Confluence и GitLab (SRS, Единая база, Система решений)",
   "Подготовка и проведение презентаций и КП — помогали привлекать клиентов",
 ];
+
+const Achievements = () => (
+  <ul className="space-y-2">
+    {achievements.map((a, i) => (
+      <li
+        key={i}
+        className="flex gap-2 text-sm text-neutral-700 sm:text-base dark:text-neutral-300"
+      >
+        <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-indigo-500" />
+        <span>{a}</span>
+      </li>
+    ))}
+  </ul>
+);
 
 const data = [
   {
@@ -45,21 +58,7 @@ const data = [
           <h4 className="mb-3 text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
             Ключевые достижения
           </h4>
-          <ul className="space-y-2">
-            {achievements.map((a, i) => (
-              <motion.li
-                key={i}
-                initial={{ opacity: 0, x: -10 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.05 }}
-                className="flex gap-2 text-sm text-neutral-700 sm:text-base dark:text-neutral-300"
-              >
-                <span className="mt-2 inline-block h-1 w-1 shrink-0 rounded-full bg-indigo-500" />
-                <span>{a}</span>
-              </motion.li>
-            ))}
-          </ul>
+          <Achievements />
         </div>
 
         <div className="mt-6">

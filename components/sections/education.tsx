@@ -1,7 +1,6 @@
 "use client";
 
 import { HoverEffect } from "@/components/ui/card-hover";
-import { motion } from "motion/react";
 
 const courses = [
   {
@@ -35,27 +34,16 @@ export function Education() {
   return (
     <section id="education" className="relative w-full py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-        >
+        <div>
           <span className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
             // образование
           </span>
           <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
             Учусь постоянно
           </h2>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-8 rounded-2xl border border-neutral-200 bg-white/50 p-6 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/50"
-        >
+        <div className="mt-8 rounded-2xl border border-neutral-200 bg-white/50 p-6 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/50">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <h3 className="text-lg font-semibold sm:text-xl">
               БГТУ «ВОЕНМЕХ» им. Д.Ф. Устинова
@@ -67,7 +55,7 @@ export function Education() {
           <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
             Высшее · Факультет информационных и управляющих систем · Радиотехника
           </p>
-        </motion.div>
+        </div>
 
         <div className="mt-4">
           <HoverEffect items={courses} />
