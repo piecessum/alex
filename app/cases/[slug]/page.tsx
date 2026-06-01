@@ -130,20 +130,17 @@ export default async function CasePage({
           <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
             // что я сделал
           </h2>
-          <div className="mt-5 space-y-4">
+          <div className="mt-6 space-y-6">
             {c.actions.map((a, i) => (
-              <div
-                key={i}
-                className="flex gap-4 rounded-2xl border border-neutral-200 bg-white/50 p-5 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/50"
-              >
-                <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-indigo-500/10 text-sm font-mono text-indigo-500 dark:text-indigo-400">
-                  {i + 1}
+              <div key={i} className="flex gap-4">
+                <span className="font-mono text-sm text-indigo-500 dark:text-indigo-400">
+                  {i + 1}.
                 </span>
                 <div>
                   <h3 className="font-semibold text-neutral-900 dark:text-neutral-100">
                     {a.title}
                   </h3>
-                  <p className="mt-1.5 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+                  <p className="mt-1 text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
                     {a.text}
                   </p>
                 </div>
