@@ -36,6 +36,23 @@ const contacts = [
   },
 ];
 
+const resumeLinks = [
+  {
+    label: "hh.ru",
+    sub: "Резюме · бизнес-аналитик",
+    href: "https://spb.hh.ru/resume/e767be73ff0fffb18b0039ed1f5536684d4e4f",
+    mono: "hh",
+    color: "#d6001c",
+  },
+  {
+    label: "Хабр Карьера",
+    sub: "Резюме · career.habr.com",
+    href: "https://career.habr.com/alex_sum",
+    mono: "@",
+    color: "#0a8f3c",
+  },
+];
+
 export function Contact() {
   const [copied, setCopied] = useState<string | null>(null);
 
@@ -114,6 +131,39 @@ export function Contact() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-10">
+          <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+            // резюме на площадках
+          </span>
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {resumeLinks.map((r) => (
+              <a
+                key={r.label}
+                href={r.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 rounded-2xl border border-neutral-200 bg-white/50 p-5 backdrop-blur transition hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-950/50 dark:hover:border-neutral-700"
+              >
+                <div
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-base font-bold lowercase text-white"
+                  style={{ backgroundColor: r.color }}
+                >
+                  {r.mono}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-medium text-neutral-900 dark:text-neutral-100">
+                    {r.label}
+                  </div>
+                  <div className="truncate text-sm text-neutral-500 dark:text-neutral-400">
+                    {r.sub}
+                  </div>
+                </div>
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-neutral-400 transition group-hover:text-indigo-500" />
+              </a>
+            ))}
+          </div>
         </div>
 
         <div className="mt-16 flex flex-col items-center gap-3 border-t border-neutral-200 pt-8 text-center text-sm text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">
