@@ -161,7 +161,7 @@ export const casesData: CaseStudy[] = [
     iconKey: "filter",
     chart: "filters",
     title: "Редизайн системы фильтров в B2B-маркетплейсе",
-    image: "/keys/filters-redesign.png",
+    image: "/keys/cover-filters.png",
     links: productLinks,
     summary:
       "Через интервью выявил два сценария поиска и разделил категории и фильтры на независимые блоки — для дизайна, фронта и бэка.",
@@ -383,7 +383,7 @@ export const casesData: CaseStudy[] = [
     iconKey: "database",
     chart: "kb",
     title: "База знаний с нуля для всей команды",
-    image: "/keys/knowledge-base.png",
+    image: "/keys/cover-knowledge.png",
     links: productLinks,
     summary:
       "Собрал общую живую базу знаний для команды из 6 разработчиков, дизайна, QA и менеджеров — и подключил к ней AI-ассистента. Вопросов ко мне в личку стало вдвое меньше.",
