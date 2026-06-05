@@ -54,15 +54,15 @@ const Column = ({
 
 export function RedesignGallery({ pairs }: { pairs: GalleryPair[] }) {
   return (
-    // bleed-right: левый край выровнен по колонке статьи, вправо — во всю ширину со скроллом
-    <div className="mt-6 mr-[calc(50%-50vw)]">
+    // full-bleed: блок выходит на всю ширину экрана из колонки статьи
+    <div className="relative left-1/2 mt-6 w-screen -translate-x-1/2">
       <div className="space-y-12">
         {pairs.map((p) => (
           <figure key={p.label}>
-            <figcaption className="mb-3 text-lg font-semibold text-neutral-800 dark:text-neutral-200">
+            <figcaption className="mb-3 px-6 text-lg font-semibold text-neutral-800 dark:text-neutral-200">
               {p.label}
             </figcaption>
-            <div className="flex snap-x snap-mandatory items-start gap-4 overflow-x-auto pb-3 pr-6 [scrollbar-width:thin]">
+            <div className="flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-6 pb-3 [scrollbar-width:thin]">
               <Column
                 src={p.before}
                 alt={`${p.label} — было`}
