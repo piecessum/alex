@@ -41,7 +41,9 @@ export const FloatingNav = ({
             )}
           >
             {item.icon && <span className="block">{item.icon}</span>}
-            <span className="hidden sm:block">{item.name}</span>
+            <span className="hidden whitespace-nowrap lg:block">
+              {item.name}
+            </span>
           </a>
         ))}
       </div>
