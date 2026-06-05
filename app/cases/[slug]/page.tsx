@@ -5,6 +5,10 @@ import { notFound } from "next/navigation";
 import {
   IconDatabase,
   IconFilter,
+  IconMessages,
+  IconListCheck,
+  IconLayoutDashboard,
+  IconCompass,
   IconArrowLeft,
   IconArrowRight,
   IconBulb,
@@ -12,11 +16,17 @@ import {
 } from "@tabler/icons-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CaseChart } from "@/components/cases/case-charts";
+import { RedesignGallery } from "@/components/cases/redesign-gallery";
 import { casesData, getCaseBySlug } from "@/lib/cases-data";
+import type { CaseIconKey } from "@/lib/cases-data";
 
-const iconMap = {
+const iconMap: Record<CaseIconKey, typeof IconDatabase> = {
   database: IconDatabase,
   filter: IconFilter,
+  insight: IconMessages,
+  requirements: IconListCheck,
+  navigation: IconLayoutDashboard,
+  principles: IconCompass,
 } as const;
 
 export const dynamicParams = false;
@@ -49,7 +59,14 @@ export default async function CasePage({
   if (!c) notFound();
 
   const Icon = iconMap[c.iconKey];
-  const other = casesData.find((x) => x.slug !== c.slug);
+  const currentIndex = casesData.findIndex((x) => x.slug === c.slug);
+  const other =
+    casesData.length > 1
+      ? casesData[(currentIndex + 1) % casesData.length]
+      : undefined;
+  const relatedCases = (c.related ?? [])
+    .map((slug) => getCaseBySlug(slug))
+    .filter((x): x is NonNullable<typeof x> => Boolean(x));
 
   return (
     <main className="relative w-full bg-background">
@@ -173,6 +190,23 @@ export default async function CasePage({
           </div>
         </section>
 
+        {/* Было → стало */}
+        {c.gallery && c.gallery.length > 0 && (
+          <section className="mt-14">
+            <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+              // было → стало
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
+              Это не «перекраска». Каждое изменение ниже выросло из конкретного
+              запроса конечных пользователей — я собрал их боли на интервью и в
+              User Cases, и именно от них отталкивался. Слева — как было и на что
+              жаловались клиенты, справа — что я сделал в ответ. Дизайн пришёл
+              последним, поверх структуры.
+            </p>
+            <RedesignGallery pairs={c.gallery} />
+          </section>
+        )}
+
         {/* Результат */}
         <section className="mt-14">
           <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
@@ -220,6 +254,36 @@ export default async function CasePage({
             </span>
           ))}
         </div>
+
+        {/* Связанные кейсы */}
+        {relatedCases.length > 0 && (
+          <section className="mt-14">
+            <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+              // связанные кейсы
+            </h2>
+            <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {relatedCases.map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/cases/${r.slug}`}
+                  className="group flex items-start gap-3 rounded-2xl border border-neutral-200 bg-white/50 p-5 backdrop-blur transition hover:border-indigo-300 dark:border-neutral-800 dark:bg-neutral-950/50 dark:hover:border-indigo-800"
+                >
+                  <span className="mt-0.5 font-mono text-sm text-neutral-400 dark:text-neutral-500">
+                    {r.id}
+                  </span>
+                  <span className="flex-1">
+                    <span className="block font-semibold text-neutral-900 group-hover:text-indigo-600 dark:text-neutral-100 dark:group-hover:text-indigo-400">
+                      {r.title}
+                    </span>
+                    <span className="mt-1 block text-sm text-neutral-500 dark:text-neutral-400">
+                      Подробнее →
+                    </span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Навигация снизу */}
         <nav className="mt-16 flex flex-col gap-4 border-t border-neutral-200 pt-8 sm:flex-row sm:items-center sm:justify-between dark:border-neutral-800">

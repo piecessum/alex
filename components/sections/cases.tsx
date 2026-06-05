@@ -3,13 +3,22 @@ import Image from "next/image";
 import {
   IconDatabase,
   IconFilter,
+  IconMessages,
+  IconListCheck,
+  IconLayoutDashboard,
+  IconCompass,
   IconArrowRight,
 } from "@tabler/icons-react";
 import { casesData } from "@/lib/cases-data";
+import type { CaseIconKey } from "@/lib/cases-data";
 
-const iconMap = {
+const iconMap: Record<CaseIconKey, typeof IconDatabase> = {
   database: IconDatabase,
   filter: IconFilter,
+  insight: IconMessages,
+  requirements: IconListCheck,
+  navigation: IconLayoutDashboard,
+  principles: IconCompass,
 } as const;
 
 export function Cases() {
@@ -24,9 +33,10 @@ export function Cases() {
             Как я решаю задачи
           </h2>
           <p className="mt-4 max-w-3xl text-base text-neutral-600 sm:text-lg dark:text-neutral-400">
-            Два примера, где я довёл задачу от проблемы и интервью до архитектуры
-            решения и измеримого результата. Нажмите на кейс, чтобы изучить
-            подробнее.
+            Одна большая история — как я веду B2B-маркетплейс «из утилиты в
+            платформу» — разбитая на связанные кейсы. От интервью с клиентами и
+            фундамента требований до редизайна и дизайн-системы. Каждый можно
+            открыть и прочитать за пару минут.
           </p>
         </div>
 
