@@ -70,19 +70,6 @@ export function Cases() {
                   {c.summary}
                 </p>
 
-                <div className="mt-6 grid grid-cols-3 gap-3">
-                  {c.metrics.map((m) => (
-                    <div key={m.label}>
-                      <div className="text-lg font-bold tracking-tight text-indigo-600 sm:text-xl dark:text-indigo-400">
-                        {m.value}
-                      </div>
-                      <div className="mt-1 text-[11px] leading-snug text-neutral-500 dark:text-neutral-400">
-                        {m.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
                 <div className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-medium text-indigo-600 dark:text-indigo-400">
                   Открыть кейс
                   <IconArrowRight className="h-4 w-4" />
