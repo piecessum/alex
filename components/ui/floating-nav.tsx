@@ -28,7 +28,7 @@ export const FloatingNav = ({
       {/* Овал со всеми пунктами навигации */}
       <div
         className={cn(
-          "flex items-center gap-1 rounded-full border border-neutral-200 bg-white/70 px-2 py-2 backdrop-blur sm:gap-2 sm:px-4 dark:border-white/[0.15] dark:bg-black/70",
+          "flex h-11 items-center gap-1 rounded-full border border-neutral-200 bg-white/70 px-2 backdrop-blur sm:gap-2 sm:px-4 dark:border-white/[0.15] dark:bg-black/70",
           shadow
         )}
       >
@@ -48,7 +48,7 @@ export const FloatingNav = ({
 
       {/* Отдельный кружок переключения темы */}
       <span className={cn("inline-flex rounded-full", shadow)}>
-        <ThemeToggle />
+        <ThemeToggle className="h-11 w-11" />
       </span>
     </div>
   );
