@@ -7,7 +7,6 @@ import {
   IconFilter,
   IconArrowLeft,
   IconArrowRight,
-  IconCircleCheck,
   IconBulb,
   IconExternalLink,
 } from "@tabler/icons-react";
@@ -174,10 +173,10 @@ export default async function CasePage({
           </div>
         </section>
 
-        {/* В цифрах */}
+        {/* Результат */}
         <section className="mt-14">
           <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-            // в цифрах
+            // результат
           </h2>
           <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
             {c.metrics.map((m) => (
@@ -197,24 +196,6 @@ export default async function CasePage({
           <div className="mt-5">
             <CaseChart variant={c.chart} />
           </div>
-        </section>
-
-        {/* Результат */}
-        <section className="mt-14">
-          <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-            // результат
-          </h2>
-          <ul className="mt-5 space-y-3">
-            {c.results.map((r, i) => (
-              <li
-                key={i}
-                className="flex gap-3 text-base leading-relaxed text-neutral-700 dark:text-neutral-300"
-              >
-                <IconCircleCheck className="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" />
-                <span>{r}</span>
-              </li>
-            ))}
-          </ul>
         </section>
 
         {/* Вывод */}
