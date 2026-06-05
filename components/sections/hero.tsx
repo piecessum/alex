@@ -50,21 +50,21 @@ export function Hero() {
           интервью со стейкхолдерами до приёмки результатов разработки.
         </p>
 
-        <div className="mt-4 flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-500">
-          <MapPin className="h-4 w-4" />
-          Санкт-Петербург · Готов к удалёнке и командировкам
+        <div className="mt-4 flex items-start justify-center gap-2 text-sm text-neutral-500 dark:text-neutral-500">
+          <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
+          <span>Санкт-Петербург · Готов к удалёнке и командировкам</span>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-4">
+        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
           <a
             href="#contact"
-            className="inline-flex h-12 w-44 items-center justify-center rounded-[1.75rem] border border-neutral-200 bg-white/90 text-sm font-medium text-neutral-900 backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/90 dark:text-white"
+            className="inline-flex h-12 w-44 items-center justify-center rounded-[1.75rem] bg-neutral-900 text-sm font-medium text-white shadow-sm transition hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
           >
             Связаться
           </a>
           <a
             href="#experience"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-[1.75rem] border border-neutral-200 bg-transparent px-6 text-sm font-medium text-neutral-700 transition hover:bg-neutral-100 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900"
+            className="inline-flex h-12 w-44 items-center justify-center gap-2 rounded-[1.75rem] border border-neutral-300 bg-white/70 text-sm font-medium text-neutral-800 backdrop-blur transition hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-900/70 dark:text-neutral-100 dark:hover:bg-neutral-800"
           >
             Посмотреть опыт
             <ArrowDown className="h-4 w-4" />
