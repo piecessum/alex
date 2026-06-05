@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   IconDatabase,
   IconFilter,
@@ -36,8 +37,18 @@ export function Cases() {
               <Link
                 key={c.slug}
                 href={`/cases/${c.slug}`}
-                className="group flex flex-col rounded-3xl border border-neutral-200 bg-white/50 p-6 backdrop-blur transition hover:border-neutral-300 sm:p-8 dark:border-neutral-800 dark:bg-neutral-950/50 dark:hover:border-neutral-700"
+                className="group flex flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white/50 backdrop-blur transition hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-950/50 dark:hover:border-neutral-700"
               >
+                <div className="relative aspect-[16/9] w-full overflow-hidden border-b border-neutral-200 dark:border-neutral-800">
+                  <Image
+                    src={c.image}
+                    alt={c.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6 sm:p-8">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-500 dark:text-indigo-400">
                     <Icon className="h-5 w-5" />
@@ -75,6 +86,7 @@ export function Cases() {
                 <div className="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-medium text-indigo-600 dark:text-indigo-400">
                   Открыть кейс
                   <IconArrowRight className="h-4 w-4" />
+                </div>
                 </div>
               </Link>
             );

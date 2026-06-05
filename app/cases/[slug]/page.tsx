@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   IconDatabase,
@@ -8,6 +9,7 @@ import {
   IconArrowRight,
   IconCircleCheck,
   IconBulb,
+  IconExternalLink,
 } from "@tabler/icons-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CaseChart } from "@/components/cases/case-charts";
@@ -87,27 +89,50 @@ export default async function CasePage({
           {c.summary}
         </p>
 
-        {/* Метрики */}
-        <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
-          {c.metrics.map((m) => (
-            <div
-              key={m.label}
-              className="rounded-2xl border border-neutral-200 bg-white/50 p-5 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/50"
-            >
-              <div className="text-3xl font-bold tracking-tight text-indigo-600 sm:text-4xl dark:text-indigo-400">
-                {m.value}
-              </div>
-              <div className="mt-1.5 text-sm leading-snug text-neutral-500 dark:text-neutral-400">
-                {m.label}
-              </div>
-            </div>
-          ))}
+        {/* Ссылки на продукт и компанию */}
+        {c.links.length > 0 && (
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            {c.links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-9 items-center gap-1.5 rounded-full border border-neutral-200 bg-white/70 px-3.5 text-sm text-neutral-700 transition hover:border-neutral-300 hover:text-indigo-600 dark:border-neutral-800 dark:bg-neutral-950/70 dark:text-neutral-300 dark:hover:border-neutral-700 dark:hover:text-indigo-400"
+              >
+                {l.label}
+                <IconExternalLink className="h-3.5 w-3.5" />
+              </a>
+            ))}
+          </div>
+        )}
+
+        {/* Обложка кейса */}
+        <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-neutral-200 dark:border-neutral-800">
+          <Image
+            src={c.image}
+            alt={c.title}
+            fill
+            sizes="(max-width: 896px) 100vw, 896px"
+            priority
+            className="object-cover"
+          />
         </div>
 
-        {/* Ситуация */}
+        {/* О проекте */}
+        <section className="mt-12">
+          <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+            // о проекте
+          </h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
+            {c.context}
+          </p>
+        </section>
+
+        {/* Проблема */}
         <section className="mt-14">
           <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-            // что было
+            // проблема
           </h2>
           <p className="mt-4 text-lg font-medium text-neutral-800 dark:text-neutral-200">
             {c.problem}
@@ -125,10 +150,10 @@ export default async function CasePage({
           </ul>
         </section>
 
-        {/* Что сделал */}
+        {/* Как подходил */}
         <section className="mt-14">
           <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
-            // что я сделал
+            // как я подходил к задаче
           </h2>
           <div className="mt-6 space-y-6">
             {c.actions.map((a, i) => (
@@ -149,11 +174,26 @@ export default async function CasePage({
           </div>
         </section>
 
-        {/* Графики */}
+        {/* В цифрах */}
         <section className="mt-14">
           <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
             // в цифрах
           </h2>
+          <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+            {c.metrics.map((m) => (
+              <div
+                key={m.label}
+                className="rounded-2xl border border-neutral-200 bg-white/50 p-5 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/50"
+              >
+                <div className="text-3xl font-bold tracking-tight text-indigo-600 sm:text-4xl dark:text-indigo-400">
+                  {m.value}
+                </div>
+                <div className="mt-1.5 text-sm leading-snug text-neutral-500 dark:text-neutral-400">
+                  {m.label}
+                </div>
+              </div>
+            ))}
+          </div>
           <div className="mt-5">
             <CaseChart variant={c.chart} />
           </div>
