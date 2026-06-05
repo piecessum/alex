@@ -51,6 +51,27 @@ const resumeLinks = [
     mono: "@",
     color: "#0a8f3c",
   },
+  {
+    label: "ArbiHunter",
+    sub: "Резюме · arbihunter.com",
+    href: "https://arbihunter.com/resumes/middle-business-analyst-9856",
+    mono: "ah",
+    color: "#6d28d9",
+  },
+  {
+    label: "budu.jobs",
+    sub: "Резюме · budu.jobs",
+    href: "https://budu.jobs/cv/p/6a21a807-51f1-4fe6-ab3f-ea1c1c5013cd",
+    mono: "bu",
+    color: "#ef5a2a",
+  },
+  {
+    label: "HireHi",
+    sub: "Резюме · hirehi.ru",
+    href: "https://hirehi.ru/resume/zZAwnIBYVX",
+    mono: "hi",
+    color: "#0ea5e9",
+  },
 ];
 
 export function Contact() {
