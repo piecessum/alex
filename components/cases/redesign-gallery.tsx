@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { linkify } from "./linkify";
 
 export type GalleryShot = { src: string; text?: string };
 
@@ -46,7 +47,7 @@ const Column = ({
     </div>
     {text && (
       <p className="mt-3 text-[15px] leading-relaxed text-neutral-600 dark:text-neutral-400">
-        {text}
+        {linkify(text)}
       </p>
     )}
   </div>
