@@ -17,6 +17,7 @@ import {
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CaseChart } from "@/components/cases/case-charts";
 import { RedesignGallery } from "@/components/cases/redesign-gallery";
+import { linkify } from "@/components/cases/linkify";
 import { casesData, getCaseBySlug } from "@/lib/cases-data";
 import type { CaseIconKey } from "@/lib/cases-data";
 
@@ -102,7 +103,7 @@ export default async function CasePage({
           {c.title}
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-neutral-600 dark:text-neutral-400">
-          {c.summary}
+          {linkify(c.summary)}
         </p>
 
         {/* Ссылки на продукт и компанию */}
@@ -141,7 +142,7 @@ export default async function CasePage({
             // о проекте
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
-            {c.context}
+            {linkify(c.context)}
           </p>
         </section>
 
@@ -151,7 +152,7 @@ export default async function CasePage({
             // проблема
           </h2>
           <p className="mt-4 text-lg font-medium text-neutral-800 dark:text-neutral-200">
-            {c.problem}
+            {linkify(c.problem)}
           </p>
           <ul className="mt-5 space-y-2.5">
             {c.situation.map((s, i) => (
@@ -160,7 +161,7 @@ export default async function CasePage({
                 className="flex gap-3 text-base leading-relaxed text-neutral-600 dark:text-neutral-400"
               >
                 <span className="mt-2.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400" />
-                <span>{s}</span>
+                <span>{linkify(s)}</span>
               </li>
             ))}
           </ul>
@@ -182,7 +183,7 @@ export default async function CasePage({
                     {a.title}
                   </h3>
                   <p className="mt-1 text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
-                    {a.text}
+                    {linkify(a.text)}
                   </p>
                 </div>
               </div>
@@ -239,7 +240,7 @@ export default async function CasePage({
             что я вынес
           </div>
           <p className="mt-3 text-base leading-relaxed text-neutral-700 dark:text-neutral-300">
-            {c.lesson}
+            {linkify(c.lesson)}
           </p>
         </section>
 
