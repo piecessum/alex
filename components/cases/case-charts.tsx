@@ -267,10 +267,10 @@ export const NavigationChart = () => (
       <div className="space-y-3">
         <Swap from="разрозненные блоки" to="единая навигация" />
         <Swap from="воздух на экране" to="списки и сводки" />
-        <Swap from="правка под клиента" to="обновление для всех" />
+        <Swap from="предлагает только главная" to="предлагает каждый блок" />
       </div>
       <p className="mt-5 text-xs leading-relaxed text-neutral-500 dark:text-neutral-400">
-        Обкатываю на Демоверсии — и обновление прилетает сразу всем клиентам.
+        Тот же экран стал нести больше пользы — и продавать.
       </p>
     </Panel>
   </div>
