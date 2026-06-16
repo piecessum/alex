@@ -63,7 +63,7 @@ export function RedesignGallery({ pairs }: { pairs: GalleryPair[] }) {
             <figcaption className="mb-3 px-6 text-lg font-semibold text-neutral-800 dark:text-neutral-200">
               {p.label}
             </figcaption>
-            <div className="flex snap-x snap-mandatory items-start gap-4 overflow-x-auto px-6 pb-3 [scrollbar-width:thin]">
+            <div className="flex snap-x snap-mandatory scroll-pl-6 scroll-pr-6 items-start gap-4 overflow-x-auto px-6 pb-3 [scrollbar-width:thin]">
               <Column
                 src={p.before}
                 alt={`${p.label} — было`}

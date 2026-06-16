@@ -16,6 +16,7 @@ import {
 } from "@tabler/icons-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CaseChart } from "@/components/cases/case-charts";
+import { CaseBpmn } from "@/components/cases/case-bpmn";
 import { RedesignGallery } from "@/components/cases/redesign-gallery";
 import { linkify } from "@/components/cases/linkify";
 import { casesData, getCaseBySlug } from "@/lib/cases-data";
@@ -190,6 +191,21 @@ export default async function CasePage({
             ))}
           </div>
         </section>
+
+        {/* Процесс TO-BE (BPMN) */}
+        {c.bpmn && (
+          <section className="mt-14">
+            <h2 className="text-sm font-mono uppercase tracking-wider text-neutral-500 dark:text-neutral-400">
+              // процесс to-be (bpmn)
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
+              Те же два сценария поиска, переведённые в нотацию BPMN: один поток
+              пользователя, развилка «как ищет?», две ветки — по спецификации и
+              по категории — сходятся в добавление товара в спецификацию или КП.
+            </p>
+            <CaseBpmn />
+          </section>
+        )}
 
         {/* Было → стало */}
         {c.gallery && c.gallery.length > 0 && (
