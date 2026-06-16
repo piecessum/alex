@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { CaseCover } from "@/components/cases/case-cover";
 import {
   IconDatabase,
   IconFilter,
@@ -50,12 +50,11 @@ export function Cases() {
                 className="group flex flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white/50 backdrop-blur transition hover:border-neutral-300 dark:border-neutral-800 dark:bg-neutral-950/50 dark:hover:border-neutral-700"
               >
                 <div className="relative aspect-[16/9] w-full overflow-hidden border-b border-neutral-200 dark:border-neutral-800">
-                  <Image
-                    src={c.image}
-                    alt={c.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition duration-500 group-hover:scale-105"
+                  <CaseCover
+                    id={c.id}
+                    iconKey={c.iconKey}
+                    label={c.coverLabel}
+                    className="absolute inset-0 h-full w-full transition duration-500 group-hover:scale-105"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6 sm:p-8">

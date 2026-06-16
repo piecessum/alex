@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   IconDatabase,
@@ -16,6 +15,7 @@ import {
 } from "@tabler/icons-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { CaseChart } from "@/components/cases/case-charts";
+import { CaseCover } from "@/components/cases/case-cover";
 import { CaseBpmn } from "@/components/cases/case-bpmn";
 import { RedesignGallery } from "@/components/cases/redesign-gallery";
 import { linkify } from "@/components/cases/linkify";
@@ -127,14 +127,7 @@ export default async function CasePage({
 
         {/* Обложка кейса */}
         <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden rounded-3xl border border-neutral-200 dark:border-neutral-800">
-          <Image
-            src={c.image}
-            alt={c.title}
-            fill
-            sizes="(max-width: 896px) 100vw, 896px"
-            priority
-            className="object-cover"
-          />
+          <CaseCover id={c.id} iconKey={c.iconKey} label={c.coverLabel} />
         </div>
 
         {/* О проекте */}
