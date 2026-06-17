@@ -62,10 +62,13 @@ export default async function CasePage({
 
   const Icon = iconMap[c.iconKey];
   const currentIndex = casesData.findIndex((x) => x.slug === c.slug);
-  const other =
-    casesData.length > 1
-      ? casesData[(currentIndex + 1) % casesData.length]
+  const total = casesData.length;
+  const prev =
+    total > 1
+      ? casesData[(currentIndex - 1 + total) % total]
       : undefined;
+  const next =
+    total > 1 ? casesData[(currentIndex + 1) % total] : undefined;
   const relatedCases = (c.related ?? [])
     .map((slug) => getCaseBySlug(slug))
     .filter((x): x is NonNullable<typeof x> => Boolean(x));
@@ -297,16 +300,13 @@ export default async function CasePage({
 
         {/* Навигация снизу */}
         <nav className="mt-16 flex flex-col gap-4 border-t border-neutral-200 pt-8 sm:flex-row sm:items-center sm:justify-between dark:border-neutral-800">
-          {other ? (
+          {prev ? (
             <Link
-              href={`/cases/${other.slug}`}
+              href={`/cases/${prev.slug}`}
               className="group inline-flex items-center gap-2 text-sm text-neutral-600 transition hover:text-indigo-600 dark:text-neutral-400 dark:hover:text-indigo-400"
             >
-              <span className="text-neutral-400 dark:text-neutral-500">
-                Следующий кейс
-              </span>
-              {other.title}
-              <IconArrowRight className="h-4 w-4" />
+              <IconArrowLeft className="h-4 w-4" />
+              предыдущий кейс
             </Link>
           ) : (
             <span />
@@ -317,6 +317,17 @@ export default async function CasePage({
           >
             Связаться со мной
           </Link>
+          {next ? (
+            <Link
+              href={`/cases/${next.slug}`}
+              className="group inline-flex items-center gap-2 text-sm text-neutral-600 transition hover:text-indigo-600 dark:text-neutral-400 dark:hover:text-indigo-400"
+            >
+              следующий кейс
+              <IconArrowRight className="h-4 w-4" />
+            </Link>
+          ) : (
+            <span />
+          )}
         </nav>
       </article>
     </main>
