@@ -239,6 +239,9 @@ export function CaseBpmn() {
           Готово
         </text>
       </svg>
+      <p className="mt-4 text-xs font-mono uppercase tracking-wider text-neutral-400 dark:text-neutral-500">
+        Упрощённая схема
+      </p>
     </div>
   );
 }
