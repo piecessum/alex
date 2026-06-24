@@ -38,7 +38,6 @@ export type CaseStudy = {
   iconKey: CaseIconKey;
   chart: CaseChartKey;
   title: string;
-  image: string;
   coverLabel: string;
   links: CaseLink[];
   summary: string;
@@ -70,7 +69,6 @@ export const casesData: CaseStudy[] = [
     iconKey: "filter",
     chart: "filters",
     title: "Редизайн системы фильтров в B2B-маркетплейсе",
-    image: "/keys/cover-filters.png",
     coverLabel: "редизайн фильтров",
     links: productLinks,
     summary:
@@ -120,7 +118,6 @@ export const casesData: CaseStudy[] = [
     iconKey: "database",
     chart: "kb",
     title: "База знаний с нуля для всей команды",
-    image: "/keys/cover-knowledge.png",
     coverLabel: "база знаний + AI",
     links: productLinks,
     summary:
@@ -171,7 +168,6 @@ export const casesData: CaseStudy[] = [
     chart: "insight",
     title:
       "Из утилиты — в платформу. Или в чём разница онлайн-склада и онлайн-шоурума",
-    image: "/keys/cover-insight.png",
     coverLabel: "из утилиты — в платформу",
     links: productLinks,
     summary:
@@ -225,7 +221,6 @@ export const casesData: CaseStudy[] = [
     iconKey: "requirements",
     chart: "requirements",
     title: "Фундамент требований: от догадок к общему языку",
-    image: "/keys/cover-requirements.png",
     coverLabel: "фундамент требований",
     links: productLinks,
     summary:
@@ -275,7 +270,6 @@ export const casesData: CaseStudy[] = [
     iconKey: "principles",
     chart: "principles",
     title: "Принципы продукта и потребности, которых бизнес не видел",
-    image: "/keys/cover-principles.png",
     coverLabel: "принципы продукта",
     links: productLinks,
     summary:
@@ -329,7 +323,6 @@ export const casesData: CaseStudy[] = [
     iconKey: "navigation",
     chart: "navigation",
     title: "Редизайн системы навигации: информативнее, дружелюбнее",
-    image: "/keys/cover-navigation.png",
     coverLabel: "редизайн навигации",
     links: productLinks,
     summary:
