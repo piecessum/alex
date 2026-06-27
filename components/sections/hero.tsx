@@ -2,7 +2,7 @@
 
 import { Spotlight } from "@/components/ui/spotlight";
 import { BackgroundGrid } from "@/components/ui/background-grid";
-import Image from "next/image";
+import { AvatarToggle } from "@/components/avatar-toggle";
 import { MapPin, ArrowDown } from "lucide-react";
 
 export function Hero() {
@@ -19,16 +19,7 @@ export function Hero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-48 bg-gradient-to-b from-transparent to-background" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center px-6 pt-24 pb-16 text-center">
-        <div className="mb-8 overflow-hidden rounded-full border-2 border-neutral-200 dark:border-neutral-800">
-          <Image
-            src="/avatar.jpg"
-            alt="Алексей Масюта"
-            width={224}
-            height={224}
-            className="h-28 w-28 object-cover"
-            priority
-          />
-        </div>
+        <AvatarToggle size={112} className="mb-8" />
 
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white/40 px-3 py-1 text-xs text-neutral-700 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/40 dark:text-neutral-300">
           <span className="inline-flex h-2 w-2 rounded-full bg-emerald-500" />
