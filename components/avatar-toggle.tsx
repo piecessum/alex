@@ -41,6 +41,7 @@ export function AvatarToggle({
   const blobs = React.useRef<Record<string, Blob>>({});
   const liveUrl = React.useRef<string | null>(null);
   const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const transitionId = React.useRef(0);
 
   // Гифки один раз грузим целиком в память. Дальше каждый переход создаёт
   // свежий object-URL из блоба: гифка играет с первого кадра, мгновенно
@@ -96,7 +97,10 @@ export function AvatarToggle({
     setTrans({ gif, base });
 
     if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setTrans(null), ANIM_MS);
+    const id = ++transitionId.current;
+    timer.current = setTimeout(() => {
+      if (transitionId.current === id) setTrans(null);
+    }, ANIM_MS);
   }, [resolvedTheme, mounted]);
 
   const isDark = mounted ? resolvedTheme === "dark" : true;
